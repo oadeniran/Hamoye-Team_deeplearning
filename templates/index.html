@@ -15,53 +15,74 @@
         <br>
         <form action="{{ url_for('prediction') }}" method = "post">
             <label for = "Classification_Size">Classification Size</label>
-            <input type = "number" id = "Classification_Size" name = "Classification_Size" required = "required">
+            <select id = "Classification_Size" name = "Classification_Size" required = "required">
+                <option value = "1">XL- EXTRA LARGE</option>
+                <option value = "2">L- LARGE</option>
+                <option value = "3">M- MEDUIM</option>
+                <option value = "4">S- SMALL</option>
+            </select>
             <br>
             <br>
             <label for = "Classification_Focus">Classification Focus</label>
-            <input type = "number" id = "Classification_Focus" name = "Classification_Focus" required = "required">
+            <select id = "Classification_Focus" name = "Classification_Focus" required = "required">
+                <option value = "0">CO- COMPREHENSIVE</option>
+                <option value = "1">FC- FULL COMPREHENSIVE</option>
+                <option value = "2">FO- FOCUSED</option>
+                <option value = "3">SP- SPECIALIST</option>
+            </select>
             <br>
             <br>
             <label for = "Research_Intensity">Research Intensity</label>
-            <input type = "number" id = "Research_Intensity" name = "Research_Intensity" required = "required">
+            <select id = "Research_Intensity" name = "Research_Intensity" required = "required">
+                <option value = "1">VERY HIGH</option>
+                <option value = "2">HIGH</option>
+                <option value = "3">MEDIUM</option>
+                <option value = "4">LOW</option>
+            </select>
             <br>
             <br>
             <label for = "Status">Status</label>
-            <input type = "number" id = "Status" name = "Status" required = "required">
+            <select id = "Status" name = "Status" required = "required">
+                <option value = "1">A</option>
+                <option value = "2">B</option>
+                <option value = "3">C</option>
+            </select>
             <br>
             <br>
-            <label for = "Academic_Reputation_Score">Academic Reputation Score</label>
-            <input type = "number" id = "Academic_Reputation_Score" name = "Academic_Reputation_Score" required = "required">
+            <label for = "Academic_Reputation_Score">Academic Reputation Score (0 - 100)</label>
+            <input type = "number" id = "Academic_Reputation_Score" name = "Academic_Reputation_Score" max = 100 required = "required">
             <br>
             <br>
-            <label for = "Employer_Reputation_Score">Employer Reputation Score</label>
-            <input type = "number" id = "Employer_Reputation_Score" name = "Employer_Reputation_Score" required = "required">
+            <label for = "Employer_Reputation_Score">Employer Reputation Score (0 - 100)</label>
+            <input type = "number" id = "Employer_Reputation_Score" name = "Employer_Reputation_Score" max = 100 required = "required">
             <br>
             <br>
-            <label for = "Faculty_Student_Score">Faculty Student Score</label>
-            <input type = "number" id = "Faculty_Student_Score" name = "Faculty_Student_Score" required = "required">
+            <label for = "Faculty_Student_Score">Faculty Student Score (0 - 100)</label>
+            <input type = "number" id = "Faculty_Student_Score" name = "Faculty_Student_Score" max = 100 required = "required">
             <br>
             <br>
-            <label for = "Citations_Per_Faculty_Score">Citations Per Faculty Score</label>
-            <input type = "number" id = "Citations_Per_Faculty_Score" name = "Citations_Per_Faculty_Score" required = "required">
+            <label for = "Citations_Per_Faculty_Score">Citations Per Faculty Score (0 - 100)</label>
+            <input type = "number" id = "Citations_Per_Faculty_Score" name = "Citations_Per_Faculty_Score" max = 100 required = "required">
             <br>
             <br>
-            <label for = "International_Faculty_Score">International Faculty Score</label>
-            <input type = "number" id = "International_Faculty_Score" name = "International_Faculty_Score" required = "required">
+            <label for = "International_Faculty_Score">International Faculty Score (0 - 100)</label>
+            <input type = "number" id = "International_Faculty_Score" name = "International_Faculty_Score" max = 100 required = "required">
             <br>
             <br>
-            <label for = "International_Student_Score">International Student Score</label>
-            <input type = "number" id = "International_Student_Score" name = "International_Student_Score" required = "required">
+            <label for = "International_Student_Score">International Student Score (0 - 100)</label>
+            <input type = "number" id = "International_Student_Score" name = "International_Student_Score" max = 100 required = "required">
             <br>
             <br>
             <input type = "submit" value = "Submit">
         </form>
 
         {% if prediction %}
-                <p> The predicted overall score is {{ prediction }} </p>
+            <p> The predicted overall score is {{ prediction }} </p>
         {% endif %}
-            
 
     </body>
+    <br>
+    <br>
+    <a href="{{ url_for('help') }}">Help</a>
 
 </html>

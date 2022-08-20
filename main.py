@@ -27,7 +27,11 @@ def prediction():
 
     prediction = model.predict(final)
     return render_template('index.html', prediction = np.round(prediction, 3)[0])
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
     
 
 if __name__ == "__main__":
-    app.run(debug = False)
+    app.run(debug = True)
