@@ -37,7 +37,7 @@ class encode_columns(BaseEstimator, TransformerMixin):
             }
         for col in cols_to_transform:
             if col not in list(encoding.keys()):
-                val_dict = {v: i for i, v in enumerate(np.unique(data[col]))}
+                val_dict = {v: i for i, v in enumerate(np.unique(X[col]))}
                 #print(val_dict)
             else:
                 val_dict = encoding[col]
@@ -59,11 +59,10 @@ def index():
 def prediction():
     feature_list = request.form.to_dict()
     print(feature_list)
-    feature_list = list(feature_list.values())
-    feature_list = list(map(float, feature_list))
-    final = np.array(feature_list).reshape(1,-1)
+    final = pd.DataFrame(feature_list, index = [1])
 
     prediction = model.predict(final)
+    print(prediction)
     return render_template('index.html', prediction = np.round(prediction, 3)[0])
 
 @app.route('/help')
