@@ -4,11 +4,11 @@ from flask import Flask, request, render_template, session, redirect, url_for, f
 from sklearn import preprocessing
 from sklearn.pipeline import Pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
-from encodeclass import encode_columns
 import pickle
 import gc
 
 app = Flask(__name__)
+from encodeclass import encode_columns
 app.secret_key = 'team-deep-learning'
 
 with open('final_model.pickle', 'rb') as f:
